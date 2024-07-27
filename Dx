@@ -8,7 +8,7 @@ wait(2)
 local a=tostring(game.Players.LocalPlayer.Character);
 if a=="Afuhwjse"then
 _G.goudan6=true
-elseif a=="woxihuanmaomao"then
+elseif a=="adsh_aht6"then
 _G.goudan6=true
 elseif a=="SLYXCLTMKKGk"then
 _G.goudan6=true
