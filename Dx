@@ -1,0 +1,1071 @@
+msg = Instance.new("Message")
+msg.Parent = game.Workspace
+msg.Text = "支持游戏 铲雪 雪犁 极速 力量 火箭发射 忍者 举重 获得巨大模拟器 刀刃杀手模拟器"
+wait(2)
+msg:remove()
+wait(2)
+
+local a=tostring(game.Players.LocalPlayer.Character);
+if a=="Afuhwjse"then
+_G.goudan6=true
+elseif a=="woxihuanmaomao"then
+_G.goudan6=true
+elseif a=="SLYXCLTMKKGk"then
+_G.goudan6=true
+elseif a=="FashionNOOBawa"then
+_G.goudan6=true
+end
+if _G.goudan6==true then
+
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/N31smVZM"))()
+local LBLG = Instance.new("ScreenGui", getParent)
+local LBL = Instance.new("TextLabel", getParent)
+local player = game.Players.LocalPlayer
+
+LBLG.Name = "LBLG"
+LBLG.Parent = game.CoreGui
+LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LBLG.Enabled = true
+LBL.Name = "LBL"
+LBL.Parent = LBLG
+LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+LBL.BackgroundTransparency = 1
+LBL.BorderColor3 = Color3.new(0, 0, 0)
+LBL.Position = UDim2.new(0.75,0,0.010,0)
+LBL.Size = UDim2.new(0, 133, 0, 30)
+LBL.Font = Enum.Font.GothamSemibold
+LBL.Text = "TextLabel"
+LBL.TextColor3 = Color3.new(1, 1, 1)
+LBL.TextScaled = true
+LBL.TextSize = 14
+LBL.TextWrapped = true
+LBL.Visible = true
+
+local FpsLabel = LBL
+local Heartbeat = game:GetService("RunService").Heartbeat
+local LastIteration, Start
+local FrameUpdateTable = { }
+
+local function HeartbeatUpdate()
+	LastIteration = tick()
+	for Index = #FrameUpdateTable, 1, -1 do
+		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+	end
+	FrameUpdateTable[1] = LastIteration
+	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+	CurrentFPS = CurrentFPS - CurrentFPS % 1
+	FpsLabel.Text = ("北京时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+end
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
+local Window = OrionLib:MakeWindow({Name = "Dx Script", HidePremium = false, SaveConfig = true,IntroText = "Dx脚本", ConfigFolder = "即将加载"})
+
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "x Script"; Text ="欢迎使用Dx脚本"; Duration = 4; })
+
+local Tab = Window:MakeTab({
+
+    Name = "公告",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddParagraph("作者QQ3028782653")
+Tab:AddParagraph("qq群543849808")
+Tab:AddParagraph("作者综合症")
+
+local Tab = Window:MakeTab({
+
+    Name = "通用",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddSlider({
+
+	Name = "速度",
+
+	Min = 16,
+
+	Max = 200,
+
+	Default = 16,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "数值",
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+
+	end    
+
+})
+
+Tab:AddSlider({
+
+	Name = "跳跃高度",
+
+	Min = 50,
+
+	Max = 200,
+
+	Default = 50,
+
+	Color = Color3.fromRGB(255,255,255),
+
+	Increment = 1,
+
+	ValueName = "数值",
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+
+	end    
+
+})
+
+Tab:AddTextbox({
+
+	Name = "跳跃高度设置",
+
+	Default = "",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+
+	end
+
+})
+
+
+
+Tab:AddTextbox({
+
+	Name = "移动速度设置",
+
+	Default = "",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+
+	end
+
+})
+
+Tab:AddTextbox({
+
+	Name = "重力设置",
+
+	Default = "",
+
+	TextDisappear = true,
+
+	Callback = function(Value)
+
+		game.Workspace.Gravity = Value
+
+	end
+
+})
+
+Tab:AddToggle({
+
+	Name = "夜视",
+
+	Default = false,
+
+	Callback = function(Value)
+
+		if Value then
+
+		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+
+		else
+
+		    game.Lighting.Ambient = Color3.new(0, 0, 0)
+
+		end
+
+	end
+
+})
+
+Tab:AddButton({
+	Name = "飞行",
+	Callback = function()
+ loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "键盘",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end
+})
+
+Tab:AddButton({
+	Name = "空中行走",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
+end
+})
+
+Tab:AddButton({
+	Name = "透视",
+	Callback = function()
+local esp_settings = { 
+    textsize = 8,
+    colour = 255,255,255
+}
+ 
+ Tab:AddButton({
+	Name = "透视2",
+	Callback = function()
+loadstring(game:GetObjects("rbxassetid://10092697033")[1].Source)()
+	end 
+})
+ 
+local gui = Instance.new("BillboardGui")
+local esp = Instance.new("TextLabel",gui)
+ 
+ 
+ 
+gui.Name = "Cracked esp";
+gui.ResetOnSpawn = false
+gui.AlwaysOnTop = true;
+gui.LightInfluence = 0;
+gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
+esp.Text = ""
+esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+esp.BorderSizePixel = 4;
+esp.BorderColor3 = Color3.new(esp_settings.colour)
+esp.BorderSizePixel = 0
+esp.Font = "GothamSemibold"
+esp.TextSize = esp_settings.textsize
+esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
+ 
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+        if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("Cracked esp")==nil  then
+            esp.Text = "{"..v.Name.."}"
+            gui:Clone().Parent = v.Character.Head
+    end
+end
+end)
+   end
+})
+
+Tab:AddButton({
+    Name = "修改玩家碰撞箱 Hit Box",
+    Callback = function()
+local Close = Instance.new("TextButton")
+local Open2 = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local FightingGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local Cre = Instance.new("TextLabel")
+local HitBox = Instance.new("TextBox")
+local Red = Instance.new("TextBox")
+local Green = Instance.new("TextBox")
+local Blue = Instance.new("TextBox")
+local TextLabel = Instance.new("TextLabel")
+
+FightingGui.Name = "FightingGui"
+FightingGui.Parent = game.CoreGui
+FightingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+
+Open2.Name = "Tools"
+Open2.Parent = game.CoreGui
+Open2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Open.Name = "开/关"
+Open.Parent = Open2
+Open.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Open.Position = UDim2.new(0, 0, 0.451871663, 0)
+Open.Size = UDim2.new(0, 78, 0, 50)
+Open.Font = Enum.Font.SourceSans
+Open.Text = "开/关"
+Open.TextColor3 = Color3.fromRGB(250, 0, 0)
+Open.TextScaled = true
+Open.TextSize = 14.000
+Open.TextWrapped = true
+Open.MouseButton1Down:Connect(function()
+ FightingGui.Enabled = true
+end)
+
+Close.Name = "Close"
+Close.Parent = main
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Close.Position = UDim2.new(1, 0, -0.226244345, 0)
+Close.Size = UDim2.new(0, 60, 0, 50)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextScaled = true
+Close.TextSize = 14.000
+Close.TextWrapped = true
+Close.MouseButton1Down:Connect(function()
+ FightingGui.Enabled = false
+end)
+
+main.Parent = FightingGui
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.073011741, 0, 0.237333342, 0)
+main.Size = UDim2.new(0, 273, 0, 221)
+main.Draggable = true
+
+Cre.Name = "Cre"
+Cre.Parent = main
+Cre.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Cre.Position = UDim2.new(0, 0, -0.226244345, 0)
+Cre.Size = UDim2.new(0, 273, 0, 50)
+Cre.Font = Enum.Font.SourceSans
+Cre.Text = "修改人物碰撞体积箱"
+Cre.TextColor3 = Color3.fromRGB(0, 0, 0)
+Cre.TextScaled = true
+Cre.TextSize = 14.000
+Cre.TextWrapped = true
+
+HitBox.Name = "输入"
+HitBox.Parent = main
+HitBox.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+HitBox.Position = UDim2.new(0.0586080588, 0, 0.0995475128, 0)
+HitBox.Size = UDim2.new(0, 65, 0, 50)
+HitBox.Font = Enum.Font.SourceSans
+HitBox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+HitBox.PlaceholderText = "输入"
+HitBox.Text = ""
+HitBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+HitBox.TextScaled = true
+HitBox.TextSize = 14.000
+HitBox.TextWrapped = true
+
+Red.Name = "红色"
+Red.Parent = main
+Red.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Red.Position = UDim2.new(0.485832304, 0, 0.0995475128, 0)
+Red.Size = UDim2.new(0, 37, 0, 31)
+Red.Font = Enum.Font.SourceSans
+Red.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Red.PlaceholderText = "红色"
+Red.Text = ""
+Red.TextColor3 = Color3.fromRGB(0, 0, 0)
+Red.TextSize = 14.000
+
+Green.Name = "绿色"
+Green.Parent = main
+Green.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Green.Position = UDim2.new(0.665319502, 0, 0.0995475128, 0)
+Green.Size = UDim2.new(0, 37, 0, 31)
+Green.Font = Enum.Font.SourceSans
+Green.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Green.PlaceholderText = "绿色"
+Green.Text = ""
+Green.TextColor3 = Color3.fromRGB(0, 0, 0)
+Green.TextSize = 14.000
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.Position = UDim2.new(0.47118023, 0, 0.325791866, 0)
+TextLabel.Size = UDim2.new(0, 140, 0, 37)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "颜色"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Blue.Name = "蓝色"
+Blue.Parent = main
+Blue.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+Blue.Position = UDim2.new(0.837480664, 0, 0.0995475128, 0)
+Blue.Size = UDim2.new(0, 37, 0, 31)
+Blue.Font = Enum.Font.SourceSans
+Blue.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Blue.PlaceholderText = "蓝色"
+Blue.Text = ""
+Blue.TextColor3 = Color3.fromRGB(0, 0, 0)
+Blue.TextSize = 14.000
+game:GetService('RunService').RenderStepped:connect(function()
+ for i,v in next, game:GetService('Players'):GetPlayers() do
+  if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+   v.Character.HumanoidRootPart.Size = Vector3.new(HitBox.Text,HitBox.Text,HitBox.Text)
+   v.Character.HumanoidRootPart.Transparency = 0.8
+   v.Character.HumanoidRootPart.Color = Color3.new(Red.Text,Green.Text,Blue.Text)
+   v.Character.HumanoidRootPart.Material = "Neon"
+   v.Character.HumanoidRootPart.CanCollide = false
+  end
+ end
+end)
+  end
+})
+
+
+local Tab = Window:MakeTab({
+
+    Name = "火箭发射模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+
+Tab:AddButton({
+ Name="发射台岛",
+ Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-123.15931701660156, 2.7371432781219482, 3.491959810256958)
+end
+})
+
+Tab:AddButton({
+  Name="白云岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-76.13252258300781, 170.55825805664062, -60.4516716003418)
+end
+})
+
+Tab:AddButton({
+   Name="浮漂岛",
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66.51714324951172, 720.4866333007812, -5.391753196716309)
+end
+})
+
+Tab:AddButton({
+   Name="卫星岛",
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-34.2462043762207, 1429.4990234375, 1.3739361763000488)
+end
+})
+
+Tab:AddButton({
+   Name="蜜蜂迷宫岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.5361199378967285, 3131.249267578125, -29.759048461914062)
+end
+})
+
+Tab:AddButton({
+   Name="月球人救援", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7.212917804718018, 5016.341796875, -19.815933227539062)
+end
+})
+
+Tab:AddButton({
+   Name="暗物质岛",
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(68.43186950683594, 6851.94091796875, 7.890637397766113)
+end
+})
+
+Tab:AddButton({
+   Name="太空岩石岛",
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(49.92888641357422, 8942.955078125, 8.674375534057617)
+end
+})
+
+Tab:AddButton({
+   Name="零号火星岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(54.44503402709961, 11270.0927734375, -1.273137092590332)
+end
+})
+
+Tab:AddButton({
+   Name="太空水晶小行星岛",
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11.579089164733887, 15295.6318359375, -27.54974365234375)
+end
+})
+
+Tab:AddButton({
+   Name="月球浆果岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-14.601255416870117, 18410.9609375, 0.9418511986732483)
+end
+})
+
+Tab:AddButton({
+   Name="铺路石岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3.272758960723877, 22539.494140625, 63.283935546875)
+end
+})
+
+Tab:AddButton({
+   Name="流星岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-45.515689849853516, 27961.560546875, -7.358333110809326)
+end
+})
+
+Tab:AddButton({
+   Name="升级岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2.7595248222351074, 33959.98828125, 53.93095397949219)
+end
+})
+
+Tab:AddButton({
+  Name="登上火箭", 
+  Callback=function() 	game:GetService("ReplicatedStorage"):WaitForChild("BoardRocket"):FireServer()
+end
+})
+
+Tab:AddButton({
+   Name="将玩家从所有者座位移除",
+   Callback=function()
+ game:GetService("ReplicatedStorage"):WaitForChild("RemovePlayer"):FireServer()
+end
+})
+
+Tab:AddToggle({
+   Name="自动收集燃料", 
+   Default=false, 
+   Callback=function(Value)
+    isFuelScoopEnabled = Value
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "举重模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddToggle({
+
+   Name="自动举重", 
+   
+   Default=false, 
+   
+   Callback=function(Value)
+   
+toggle = Value
+while toggle do wait()
+local ohTable1 = {
+	[1] = "GainMuscle"
+}
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
+    end
+end
+})
+
+Tab:AddToggle({
+   Name="自动售卖", 
+   Default=false, 
+   Callback=function(Value)
+    tog = Value
+   while tog do wait()
+local ohTable1 = {
+	[1] = "SellMuscle"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(ohTable1)
+    end
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "忍者传奇",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddButton({
+   Name="传送到出生点", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.665502548217773, 3.4228405952453613, 29.919952392578125)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到附魔岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(51.17238235473633, 766.1807861328125, -138.44842529296875)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到星界岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(207.2932891845703, 2013.88037109375, 237.36672973632812)
+end
+})
+ 
+Tab:AddButton({"传送到神秘岛", function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(171.97178649902344, 4047.380859375, 42.0699577331543)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到太空岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(148.83824157714844, 5657.18505859375, 73.5014877319336)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到冻土岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139.28330993652344, 9285.18359375, 77.36406707763672)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到永恒岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(149.34817504882812, 13680.037109375, 73.3861312866211)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到沙暴岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(133.37144470214844, 17686.328125, 72.00334167480469)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到雷暴岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(143.19349670410156, 24070.021484375, 78.05432891845703)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到远古炼狱岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(141.27163696289062, 28256.294921875, 69.3790283203125)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到午夜暗影岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(132.74267578125, 33206.98046875, 57.495574951171875)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到神秘灵魂岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(137.76148986816406, 39317.5703125, 61.06639862060547)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到冬季奇迹岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(137.2720184326172, 46010.5546875, 55.941951751708984)
+end
+})
+     
+Tab:AddButton({
+   Name="传送到黄金大师岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(128.32339477539062, 52607.765625, 56.69411849975586)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到龙传奇岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(146.35226440429688, 59594.6796875, 77.53300476074219)
+end
+})
+
+Tab:AddButton({
+    Name="传送到赛博传奇岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(137.3321075439453, 66669.1640625, 72.21722412109375)
+end
+})
+ 
+Tab:AddButton({
+    Name="传送到天岚超能岛", 
+    Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(135.48077392578125, 70271.15625, 57.02311325073242)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到混沌传奇岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(148.58590698242188, 74442.8515625, 69.3177719116211)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到灵魂融合岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(136.9700927734375, 79746.984375, 58.54051971435547)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到黑暗元素岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(141.697265625, 83198.984375, 72.73107147216797)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到内心和平岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(135.3157501220703, 87051.0625, 66.78429412841797)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到炽烈漩涡岛", 
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(135.08216857910156, 91246.0703125, 69.56692504882812)
+end
+})
+ 
+Tab:AddButton({
+   Name="传送到35倍金币区域",
+   Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(86.2938232421875, 91245.765625, 120.54232788085938)
+end
+})
+ 
+Tab:AddButton({
+  Name="传送到死亡宠物", 
+  Callback=function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4593.21337890625, 130.87181091308594, 1430.2239990234375)
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "力量传奇",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+
+Tab:AddButton({
+  Name="肌肉房", 
+  Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8625.9296875, 13.566278457641602, -5730.4736328125)
+end
+})
+
+Tab:AddButton({
+   Name="传奇房", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4603.28173828125, 987.869140625, -3897.86572265625)
+end
+})
+
+Tab:AddButton({
+    Name="永恒房", 
+    Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6758.9638671875, 3.71626353263855, -1284.918701171875)
+end
+})
+
+Tab:AddButton({
+   Name="神话房", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2250.778076171875, 3.716248035430908, 1073.2266845703125)
+end
+})
+
+Tab:AddButton({
+   Name="冰霜房", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2623.022216796875, 3.716249465942383, -409.0733337402344)
+end
+})
+
+Tab:AddButton({
+   Name="小岛", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-37.636775970458984, 3.86960768699646, 1879.180908203125)
+end
+})
+
+Tab:AddButton({
+    Name="沙滩", 
+    Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-42.7, 3.7, 404.2)
+end
+})
+
+Tab:AddButton({
+   Name="收集宝石",
+   Callback=function()
+        jk = {}
+for _, v in pairs(game:GetService("ReplicatedStorage").chestRewards:GetDescendants()) do
+    if v.Name ~= "Light Karma Chest" or v.Name ~= "Evil Karma Chest" then
+        table.insert(jk, v.Name)
+    end
+end
+for i = 1, #jk do
+    wait(2)
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(jk[i])
+end
+    end
+})
+
+
+local Tab = Window:MakeTab({
+
+    Name = "极速传奇",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddButton({
+    Name="返回出生岛", 
+    Callback=function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9682.98828125, 58.87917709350586, 3099.033935546875)      
+end
+})
+
+Tab:AddButton({
+    Name="白雪城", 
+    Callback=function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9676.138671875, 58.87917709350586, 3782.69384765625)   
+end
+})
+
+
+Tab:AddButton({
+    Name="熔岩城", 
+    Callback=function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11054.96875, 216.83917236328125, 4898.62841796875)       
+end
+})
+
+Tab:AddButton({
+    Name="传奇公路", 
+    Callback=function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-13098.87109375, 216.83917236328125, 5907.6279296875)    
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "雪犁模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddToggle({
+  Name="自动收集雪", 
+  Default=false, 
+  Callback=function(Value)
+toggle = Value
+while toggle do wait()
+local args = {
+    [1] = workspace:WaitForChild("HitParts"):WaitForChild("Snow1"),
+    [2] = "Snow1",
+    [3] = "MagicWand"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("e8eGb8RgRXFcug8q"):FireServer(unpack(args))
+    end
+end
+})
+
+Tab:AddButton({
+  Name="传送到出生点", 
+  Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.5381879806518555, 4.882903099060059, 38.77349853515625)
+end
+})
+
+
+local Tab = Window:MakeTab({
+
+    Name = "铲雪模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+
+Tab:AddButton({
+   Name="传送买车的地方", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(90.10160064697266, 16.051794052124023, -141.703125)
+end
+})
+
+Tab:AddButton({
+   Name="传送买工具的地方",
+   Callback= function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(131.7429962158203, 16.39700698852539, -12.935890197753906)
+end
+})
+
+Tab:AddButton({
+   Name="传送买背包的地方", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(348.6633605957031, 17.03822898864746, -16.793842315673828)
+end
+})
+
+Tab:AddButton({
+   Name="传送买假日礼物的地方", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.57424926757812, 16.215335845947266, 147.10423278808594)
+end
+})
+
+Tab:AddButton({
+   Name="传送买宠物的地方", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(138.49563598632812, 17.887277603149414, 278.3686218261719)
+end
+})
+
+Tab:AddButton({
+   Name="传送超大铲雪的地方", 
+   Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-391.4309997558594, 15.84949016571045, 150.15187072753906)
+end
+})
+
+Tab:AddToggle({
+   Name="自动出售雪（要传送到指定地方）", 
+   Default=false, 
+   Callback=function(Value)
+toggle = Value
+while toggle do wait()
+local args = {
+    [1] = "SellSnow",
+    [2] = "Frosty"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Network"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end
+end
+})
+
+Tab:AddButton({
+    Name="传送出售雪的地方", 
+    Callback=function()
+    	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(481.4659423828125, 15.846257209777832, -66.55204010009766)
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "获得巨大模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddToggle({
+    Name="自动举重", 
+    Callback=function()
+toggle = Value
+while toggle do wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LiftWeight"):FireServer()
+    end
+end
+})
+
+
+Tab:AddToggle({
+    Name="自动售卖", 
+    Callback=function()
+toggle = Value
+while toggle do wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SellStrengthRequest"):FireServer()
+    end
+end
+})
+
+local Tab = Window:MakeTab({
+
+    Name = "刀刃杀手模拟器",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddToggle({
+
+   Name="自动举重", 
+   
+   Default=false, 
+   
+   Callback=function(Value)
+   
+toggle = Value
+while toggle do wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("PlayerClickAttack"):FireServer()
+    end
+end
+})
+
+while true do
+    wait()
+
+    if isFuelScoopEnabled then
+        for i, h in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if h:IsA("Tool") and h.Name == "FuelScoop" then
+                h:Activate()
+            end
+        end
+    end
+end
+
+
+else
+game.Players.LocalPlayer:Kick("你没有白名单！！！")
+end
